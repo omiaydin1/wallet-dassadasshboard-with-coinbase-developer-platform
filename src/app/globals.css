@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #333333;
+  --primary: #2563eb;
+  --secondary: #222428;
+  --button-text: #2563eb; /* New variable for button text */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1f2937;
+    --foreground: #f3f4f6;
+    --primary: #d2def1;
+    --secondary: #94a3b8;
+    --button-text: #ffffff; /* Keep white text for dark mode buttons */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--foreground);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  select {
+    color: var(--foreground);
+    background-color: var(--background);
+  }
+
+  select option {
+    color: initial;
+  }
+}
+
+/* Add this new style for buttons */
+button, .button {
+  color: var(--button-text);
+  background-color: var(--primary);
+}
+
+button:hover, .button:hover {
+  background-color: var(--secondary);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
